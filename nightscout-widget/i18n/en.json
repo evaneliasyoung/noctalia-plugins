@@ -1,0 +1,21 @@
+{
+  "settings": {
+    "settings-label": "Plugin settings",
+    "display-mode-description": "Choose how'd you like this value to appear",
+    "blood-glucose-unit-label": "Blood glucose unit",
+    "blood-glucose-unit-description": "Choose which unit you'd like to use.",
+    "in-range-color-label": "In-range color",
+    "in-range-color-description": "Apply a color for in-range readings.",
+    "out-of-range-color-label": "Out-of-range color",
+    "out-of-range-color-description": "Apply a color for out-of-range readings.",
+    "urgent-color-label": "Urgent color",
+    "urgent-color-description": "Apply a color for urgent readings.",
+    "icon-description": "Select an icon from the library.",
+    "host-label": "Nightscout host",
+    "host-description": "Domain name of your Nightscout instance.",
+    "host-placeholder": "sub.domain.com"
+  },
+  "actions": {
+    "browse-library": "Browse Library"
+  }
+}

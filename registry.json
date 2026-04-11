@@ -1,0 +1,15 @@
+{
+  "plugins": [
+    {
+      "id": "nightscout-widget",
+      "name": "Nightscout",
+      "version": "0.1.0",
+      "minNoctaliaVersion": "3.6.0",
+      "author": "evaneliasyoung",
+      "license": "LGPL-3.0-only",
+      "repository": "https://github.com/evaneliasyoung/noctalia-plugins",
+      "description": "Show CGM readings from a Nightscout server.",
+      "tags": ["Bar"]
+    }
+  ]
+}

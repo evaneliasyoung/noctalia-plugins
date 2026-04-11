@@ -1,0 +1,24 @@
+{
+  "id": "nightscout-widget",
+  "name": "Nightscout",
+  "version": "0.1.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "evaneliasyoung",
+  "license": "LGPL-3.0-only",
+  "description": "Shows CGM readings from a Nightscout server.",
+  "entryPoints": {
+    "main": "Main.qml",
+    "barWidget": "BarWidget.qml",
+    "settings": "Settings.qml"
+  },
+  "dependencies": {
+    "plugins": []
+  },
+  "metadata": {
+    "defaultSettings": {
+      "displayMode": "onhover",
+      "bgUnit": "mgdl",
+      "icon": "droplet"
+    }
+  }
+}
