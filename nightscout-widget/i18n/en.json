@@ -10,6 +10,8 @@
     "out-of-range-color-description": "Apply a color for out-of-range readings.",
     "urgent-color-label": "Urgent color",
     "urgent-color-description": "Apply a color for urgent readings.",
+    "trend-icon-label": "Trend icon",
+    "trend-icon-description": "Use the sensor's trend for the icon.",
     "icon-description": "Select an icon from the library.",
     "host-label": "Nightscout host",
     "host-description": "Domain name of your Nightscout instance.",

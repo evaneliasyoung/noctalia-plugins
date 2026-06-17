@@ -16,6 +16,7 @@ ColumnLayout {
   readonly property string insideColorDefault: Color.resolveColorKey("none")
   readonly property string outsideColorDefault: Color.resolveColorKey("tertiary")
   readonly property string urgentColorDefault: Color.resolveColorKey("error")
+  readonly property bool trendIconDefault: false
   readonly property string iconDefault: "droplet"
   readonly property string serverDefault: ""
 
@@ -25,6 +26,7 @@ ColumnLayout {
   property string insideColorBuffer: root.pluginSettings.insideColor ?? root.insideColorDefault
   property string outsideColorBuffer: root.pluginSettings.outsideColor ?? root.outsideColorDefault
   property string urgentColorBuffer: root.pluginSettings.urgentColor ?? root.urgentColorDefault
+  property bool trendIconBuffer: root.pluginSettings.trendIcon ?? root.trendIconDefault
   property string iconBuffer: root.pluginSettings.icon ?? root.iconDefault
   property string serverBuffer: root.pluginSettings.server ?? root.serverDefault
 
@@ -59,6 +61,7 @@ ColumnLayout {
     pluginApi.pluginSettings.insideColor = root.insideColorBuffer;
     pluginApi.pluginSettings.outsideColor = root.outsideColorBuffer;
     pluginApi.pluginSettings.urgentColor = root.urgentColorBuffer;
+    pluginApi.pluginSettings.trendIcon = root.trendIconBuffer;
     pluginApi.pluginSettings.icon = root.iconBuffer;
     pluginApi.pluginSettings.server = root.serverBuffer;
     pluginApi.saveSettings();
@@ -118,6 +121,16 @@ ColumnLayout {
 
     onSelected: value => {
       root.urgentColorBuffer = value;
+    }
+  }
+
+  NToggle {
+    Layout.fillWidth: true
+    label: pluginApi?.tr("settings.trend-icon-label")
+    description: pluginApi?.tr("settings.trend-icon-description")
+    checked: root.trendIconBuffer
+    onToggled: checked => {
+      root.trendIconBuffer = checked;
     }
   }
 

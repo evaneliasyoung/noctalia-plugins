@@ -18,6 +18,7 @@
     "defaultSettings": {
       "displayMode": "onhover",
       "bgUnit": "mgdl",
+      "trendIcon": false,
       "icon": "droplet"
     }
   }

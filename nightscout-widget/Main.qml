@@ -24,6 +24,7 @@ QtObject {
   }
 
   property real sgv: NaN
+  property real trend: 0
   property var latestEntry: null
   property string lastError: ""
 
@@ -51,8 +52,9 @@ QtObject {
           }
 
           const entry = parsed[0];
-          root.latestEntry = entry;
           root.sgv = Number(entry.sgv);
+          root.trend = entry.trend;
+          root.latestEntry = entry;
           root.lastError = "";
         } catch (error) {
           root.lastError = `Failed to parse Nightscout JSON: ${error}`;

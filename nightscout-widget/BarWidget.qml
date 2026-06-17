@@ -32,9 +32,11 @@ Item {
   readonly property string insideColor: root.pluginSettings.insideColor ?? Color.resolveColorKey("none")
   readonly property string outsideColor: root.pluginSettings.outsideColor ?? Color.resolveColorKey("tertiary")
   readonly property string urgentColor: root.pluginSettings.urgentColor ?? Color.resolveColorKey("error")
+  readonly property bool trendIcon: root.pluginSettings.trendIcon ?? false
   readonly property string icon: root.pluginSettings.icon ?? "droplet"
 
   readonly property real bg: main?.sgv
+  readonly property real trend: main?.trend
   // TODO: Grab from https://$host/api/v1/status.json[thresholds][bgHigh]
   readonly property real bgHigh: 220
   // TODO: Grab from https://$host/api/v1/status.json[thresholds][bgTargetTop]
@@ -52,17 +54,17 @@ Item {
 
     model: [
       {
-        "label": pluginApi?.tr("settings.settings-label"),
+        "label": root.pluginApi?.tr("settings.settings-label"),
         "action": "plugin-settings",
         "icon": "settings"
       }
     ]
     onTriggered: action => {
       contextMenu.close();
-      PanelService.closeContextMenu(screen);
+      PanelService.closeContextMenu(root.screen);
 
       if (action === "plugin-settings")
-        BarService.openPluginSettings(screen, pluginApi.manifest);
+        BarService.openPluginSettings(root.screen, root.pluginApi.manifest);
     }
   }
 
@@ -72,16 +74,16 @@ Item {
     screen: root.screen
     oppositeDirection: BarService.getPillDirection(root)
     autoHide: false
-    text: Number.isFinite(bg) ? (useMMOLL ? (bg / 18).toFixed(1) : Math.round(bg).toString()) : "--"
-    icon: root.icon
+    text: Number.isFinite(root.bg) ? (root.useMMOLL ? (root.bg / 18).toFixed(1) : Math.round(root.bg).toString()) : "--"
+    icon: root.trendIcon ? (root.trend == 0 ? "arrows-horizontal" : root.trend == 1 ? "arrows-down" : root.trend == 2 ? "arrow-up" : root.trend == 3 ? "arrow-up-right" : root.trend == 4 ? "arrow-right" : root.trend == 5 ? "arrow-down-right" : root.trend == 6 ? "arrow-down" : root.trend == 7 ? "arrows-down" : root.trend == 8 ? "arrows-random" : "arrows-vertical") : root.icon
 
     // onClicked: {
     //     pluginApi.openPanel(root.screen, root);
     // }
     onRightClicked: {
-      if (pluginApi)
-        pluginApi.closePanel(root.screen);
-      PanelService.showContextMenu(contextMenu, pill, screen);
+      if (root.pluginApi)
+        root.pluginApi.closePanel(root.screen);
+      PanelService.showContextMenu(contextMenu, pill, root.screen);
     }
 
     customIconColor: root.bg > root.bgHigh || root.bg < root.bgLow ? root.urgentColor : root.bg > root.bgTargetTop || root.bg < root.bgTargetBottom ? root.outsideColor : root.insideColor
