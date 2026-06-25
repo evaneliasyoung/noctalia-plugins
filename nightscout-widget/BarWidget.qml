@@ -75,7 +75,7 @@ Item {
     oppositeDirection: BarService.getPillDirection(root)
     autoHide: false
     text: Number.isFinite(root.bg) ? (root.useMMOLL ? (root.bg / 18).toFixed(1) : Math.round(root.bg).toString()) : "--"
-    icon: root.trendIcon ? (root.trend == 0 ? "arrows-horizontal" : root.trend == 1 ? "arrows-down" : root.trend == 2 ? "arrow-up" : root.trend == 3 ? "arrow-up-right" : root.trend == 4 ? "arrow-right" : root.trend == 5 ? "arrow-down-right" : root.trend == 6 ? "arrow-down" : root.trend == 7 ? "arrows-down" : root.trend == 8 ? "arrows-random" : "arrows-vertical") : root.icon
+    icon: root.trendIcon ? (root.trend == 0 ? "arrows-horizontal" : root.trend == 1 ? "arrows-up" : root.trend == 2 ? "arrow-up" : root.trend == 3 ? "arrow-up-right" : root.trend == 4 ? "arrow-right" : root.trend == 5 ? "arrow-down-right" : root.trend == 6 ? "arrow-down" : root.trend == 7 ? "arrows-down" : root.trend == 8 ? "arrows-random" : "arrows-vertical") : root.icon
 
     // onClicked: {
     //     pluginApi.openPanel(root.screen, root);
